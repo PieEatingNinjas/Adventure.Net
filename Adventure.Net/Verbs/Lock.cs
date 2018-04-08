@@ -2,7 +2,6 @@
 
 namespace Adventure.Net.Verbs
 {
-
     public class Lock : Verb
     {
         public Lock()
@@ -34,9 +33,7 @@ namespace Adventure.Net.Verbs
                     Print(String.Format("You lock the {0}.", Object.Name));
                     Object.IsLocked = true;
                 }
-                
             }
-
             return true;
         }
     }

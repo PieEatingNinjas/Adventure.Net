@@ -41,7 +41,5 @@
             Object = obj;
             return TakeObject();
         }
-
-
     }
 }

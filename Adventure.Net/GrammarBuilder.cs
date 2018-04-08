@@ -6,10 +6,7 @@ namespace Adventure.Net
     {
         private readonly IList<string> grammarTokens;
 
-        public GrammarBuilder(IList<string> grammarTokens)
-        {
-            this.grammarTokens = grammarTokens;
-        }
+        public GrammarBuilder(IList<string> grammarTokens) => this.grammarTokens = grammarTokens;
 
         public IList<string> Build()
         {
@@ -83,7 +80,6 @@ namespace Adventure.Net
                 if (!grammars.Contains(grammar))
                     grammars.Add(grammar);
             }
-            
             return grammars;
         }
     }

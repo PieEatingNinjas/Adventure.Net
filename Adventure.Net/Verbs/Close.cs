@@ -2,7 +2,6 @@
 
 namespace Adventure.Net.Verbs
 {
-
     public class Close : Verb
     {
         public Close()
@@ -29,15 +28,9 @@ namespace Adventure.Net.Verbs
                 Object.IsOpen = false;
                 Print(String.Format("You close the {0}.", Object.Name));
             }
-
             return true;
         }
         
-        private bool SwitchOffObject()
-        {
-            return RedirectTo<SwitchOff>("off <noun>");
-        }
-
-        
+        private bool SwitchOffObject() => RedirectTo<SwitchOff>("off <noun>");
     }
 }

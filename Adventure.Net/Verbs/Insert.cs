@@ -2,7 +2,6 @@
 
 namespace Adventure.Net.Verbs
 {
-
     public class Insert : Verb
     {
         public Insert()

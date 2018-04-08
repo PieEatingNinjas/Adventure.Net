@@ -2,7 +2,6 @@
 
 namespace Adventure.Net.Verbs
 {
-
     public class Eat : Verb
     {
         public Eat()
@@ -22,6 +21,5 @@ namespace Adventure.Net.Verbs
             
             return true;
         }
-
     }
 }

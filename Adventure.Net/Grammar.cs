@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Adventure.Net
 {
@@ -29,12 +28,12 @@ namespace Adventure.Net
 
         public bool IsMulti
         {
-            get { return Format.Contains("<multi>"); }
+            get => Format.Contains("<multi>");
         }
 
         public bool IsMultiHeld
         {
-            get { return Format.Contains("<multiheld>"); }
+            get => Format.Contains("<multiheld>");
         }
 
 
@@ -51,7 +50,6 @@ namespace Adventure.Net
                     while (tokens.Contains(""))
                         tokens.Remove("");
                 }
-
                 return tokens;
             }
         }

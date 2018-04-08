@@ -46,10 +46,7 @@ namespace Adventure.Net.Verbs
             {
                 Print("That's not something you need to refer to in the course of this game.");
             }
-
             return true;
         }
-
-
     }
 }

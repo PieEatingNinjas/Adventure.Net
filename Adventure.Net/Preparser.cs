@@ -88,8 +88,6 @@ namespace Adventure.Net
                         Objects.Add(obj);
                     }
                 }
-
-
             }
 
             Pregrammar = string.Join(" ", grammarTokens.ToArray());

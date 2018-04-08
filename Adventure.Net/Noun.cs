@@ -2,10 +2,6 @@
 {
     public class Noun
     {
-        public static bool Is<T>() where T:Object
-        {
-            Object obj = Objects.Get<T>();
-            return Context.Object == obj;
-        }
+        public static bool Is<T>() where T:Object => Context.Object == Objects.Get<T>();
     }
 }

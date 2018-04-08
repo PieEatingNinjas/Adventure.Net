@@ -1,6 +1,5 @@
-﻿using System;
-using System.Text;
-using Adventure.Net.Verbs;
+﻿using Adventure.Net.Verbs;
+using System;
 
 namespace Adventure.Net
 {
@@ -15,14 +14,11 @@ namespace Adventure.Net
 
         public Object Key { get; private set; }
         
-        public Func<Room> DoorTo { get; set; }
+        public Func<Room> DoorTo { get; protected set; }
 
-        public Func<DirectionalVerb> DoorDirection { get; set; } 
+        public Func<DirectionalVerb> DoorDirection { get; protected set; } 
         
-        public void WithKey<T>() where T:Object
-        {
-            Key = Net.Objects.Get<T>();            
-        }
+        public void WithKey<T>() where T:Object => Key = Net.Objects.Get<T>();            
 
         protected T Direction<T>() where T:DirectionalVerb
         {
@@ -46,9 +42,7 @@ namespace Adventure.Net
                 string lead = HasPluralName ? "leads" : "lead";
                 Print("You can't since the {0} {1} to nowhere.", Name, lead);
             }
-
             return null;
-
         }
 
         //public string Unlock()

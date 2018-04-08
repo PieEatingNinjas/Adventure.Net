@@ -18,9 +18,6 @@ namespace Adventure.Net.Verbs
             Grammars.Add("<multi>", TakeSingle);
         }
 
-        private bool TakeSingle()
-        {
-            return RedirectTo<Take>(K.MULTI_TOKEN);
-        }
+        private bool TakeSingle() => RedirectTo<Take>(K.MULTI_TOKEN);
     }
 }

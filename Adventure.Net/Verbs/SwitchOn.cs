@@ -2,7 +2,6 @@
 
 namespace Adventure.Net.Verbs
 {
-
     public class SwitchOn : Verb
     {
         public SwitchOn()
@@ -28,7 +27,6 @@ namespace Adventure.Net.Verbs
             {
                 Print("That's not something you can switch.");
             }
-
             return true;
         }
     }

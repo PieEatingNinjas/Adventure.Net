@@ -1,18 +1,13 @@
-﻿using System;
-
-namespace Adventure.Net
+﻿namespace Adventure.Net
 {
     public abstract class StoryBase : IStory
     {
-        public string Story { get; set; }
-        public string Headline { get; set; }
+        public string Story { get; protected set; }
+        public string Headline { get; protected set; }
         public Room Location { get; set; }
         public bool IsDone { get; set; }
 
-        protected StoryBase()
-        {
-            IsDone = false;
-        }
+        protected StoryBase() => IsDone = false;
 
         public void Initialize()
         {
@@ -26,10 +21,8 @@ namespace Adventure.Net
                 obj.Initialize();
 
             OnInitialize();
-            
         }
 
         protected abstract void OnInitialize();
-        
     }
 }

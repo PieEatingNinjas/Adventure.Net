@@ -20,7 +20,6 @@ namespace Adventure.Net
                 if (!String.IsNullOrEmpty(item))
                     return false;
             }
-
             return true;
         }
 

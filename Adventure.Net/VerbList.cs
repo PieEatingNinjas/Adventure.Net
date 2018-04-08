@@ -13,15 +13,14 @@ namespace Adventure.Net
         {
             verbs = new List<Verb>();
 
-            Action<IEnumerable<Type>> add = (list) =>
+            void add(IEnumerable<Type> list)
+            {
+                foreach (var type in list)
                 {
-                    foreach (var type in list)
-                    {
-                        if (type.IsSubclassOf(typeof(Verb)) && !type.IsAbstract)
-                            verbs.Add(Activator.CreateInstance(type) as Verb);
-                    }
-                
-                };
+                    if (type.IsSubclassOf(typeof(Verb)) && !type.IsAbstract)
+                        verbs.Add(Activator.CreateInstance(type) as Verb);
+                }
+            }
 
             Type[] types = Assembly.GetExecutingAssembly().GetTypes();
             add(types);
@@ -29,23 +28,14 @@ namespace Adventure.Net
             var storyType = Context.Story.GetType();
             types = Assembly.GetAssembly(storyType).GetTypes();
             add(types);
-            
         }
 
-        public static IList<Verb> List
-        {
-            get { return verbs; }
-        }
+        public static IList<Verb> List => verbs;
 
         public static Verb GetVerbByName(string name)
-        {
-            return List.Where(x => x.Name == name || x.Synonyms.Contains(name)).FirstOrDefault();
-        }
+            => List.Where(x => x.Name == name || x.Synonyms.Contains(name)).FirstOrDefault();
 
         public static IList<Verb> GetVerbsByName(string name)
-        {
-            return List.Where(x => x.Name == name || x.Synonyms.Contains(name)).ToList();
-        }
-
+            => List.Where(x => x.Name == name || x.Synonyms.Contains(name)).ToList();
     }
 }

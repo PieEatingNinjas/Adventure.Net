@@ -5,7 +5,6 @@ namespace Adventure.Net
 {
     public abstract class Object
     {
-        
         protected static Library L = new Library();
 
         private readonly Dictionary<Type, Func<bool>> beforeRoutines;
@@ -30,13 +29,11 @@ namespace Adventure.Net
         
         public bool HasActionRountines
         {
-            get { return beforeRoutines.Count > 0 || afterRoutines.Count > 0; }
+            get => beforeRoutines.Count > 0 || afterRoutines.Count > 0;
         }
 
-        
         public bool HasLight { get; set; }
         public bool HasPluralName { get; set; }
-
         public bool IsAnimate { get; set; }
         public bool IsEdible { get; set; }
         public bool IsLockable { get; set; }
@@ -49,8 +46,6 @@ namespace Adventure.Net
         public bool IsSwitchable { get; set; }
         public bool IsTouched { get; set; }
         public bool IsTransparent { get; set; }
-
-        
         public string Name { get; set; }
         public Object Parent { get; set; }
         public Synonyms Synonyms { get; set; }
@@ -60,9 +55,7 @@ namespace Adventure.Net
         public Func<string> Describe { get; set; }
 
         public void Before<T>(Func<bool> before) where T : Verb
-        {
-            beforeRoutines.Add(typeof(T), before);
-        }
+            => beforeRoutines.Add(typeof(T), before);
 
         public Func<bool> Before<T>() where T : Verb
         {
@@ -78,9 +71,7 @@ namespace Adventure.Net
         }
 
         public void After<T>(Func<bool> after) where T : Verb
-        {
-            afterRoutines.Add(typeof(T), after);
-        }
+            => afterRoutines.Add(typeof(T), after);
 
         public Func<bool> After<T>() where T : Verb
         {
@@ -95,46 +86,27 @@ namespace Adventure.Net
             return null;
         }
 
-        public bool Is<T>()
-        {
-            return (GetType() == typeof(T));
-        }
-
         public string TheyreOrThats
         {
-            get
-            {
-                return HasPluralName ? "They're" : "That's";
-            }
+            get => HasPluralName ? "They're" : "That's";
         }
 
         public string ThatOrThose
         {
-            get
-            {
-                return HasPluralName ? "Those" : "That";
-            }
+            get => HasPluralName ? "Those" : "That";
         }
 
         public string IsOrAre
         {
-            get
-            {
-                return HasPluralName ? "are" : "is";
-            }
+            get => HasPluralName ? "are" : "is";
         }
 
         #region Convenience Methods for Action Routines
 
-        protected void Print(string message)
-        {
-            Context.Parser.Print(message);
-        }
+        protected void Print(string message) => Context.Parser.Print(message);
 
         protected void Print(string format, params object[] arg)
-        {
-            Context.Parser.Print(format, arg);
-        }
+            => Context.Parser.Print(format, arg);
 
         protected void Execute(string input)
         {
@@ -147,37 +119,25 @@ namespace Adventure.Net
             {
                 Context.Parser.ExecuteCommand(command);
             }
-           
         }
 
-        protected bool In<T>() where T:Object
-        {
-            Object obj = Rooms.Get<T>();
-            return (L.CurrentLocation == obj);
-        }
+        protected bool In<T>() where T:Object => L.CurrentLocation == Rooms.Get<T>();
 
-        protected Room Room<T>()
-        {
-            return Rooms.Get<T>();
-        }
+        protected Room Room<T>() => Rooms.Get<T>();
         
         protected Room Location
         {
-            get { return Context.Story.Location; }
+            get => Context.Story.Location;
         }
         
         public bool InScope
         {
-            get
-            {
-                var scoped = L.ObjectsInScope();
-                return scoped.Contains(this);
-            }
+            get => L.ObjectsInScope().Contains(this);
         }
 
         public bool InInventory
         {
-            get { return Inventory.Contains(this); }    
+            get => Inventory.Contains(this);
         }
 
         public void Remove()
@@ -190,12 +150,12 @@ namespace Adventure.Net
 
         public bool AtLocation
         {
-            get { return Context.Story.Location.Objects.Contains(this); }
+            get => Context.Story.Location.Objects.Contains(this);
         }
 
         public bool IsContainer
         {
-            get { return (this as Container != null);  }
+            get => this is Container;
         }
 
         public void MoveToLocation()
@@ -203,8 +163,6 @@ namespace Adventure.Net
             Inventory.Remove(this);
             Context.Story.Location.Objects.Add(this);
         }
-
         #endregion
-
     }
 }

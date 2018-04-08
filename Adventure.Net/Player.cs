@@ -3,12 +3,8 @@
     public class Player 
     {
         public Player() 
-        {
-        }
+        { }
 
-        public static bool Has<T>() where T:Object
-        {
-            return Inventory.Contains<T>();
-        }
+        public static bool Has<T>() where T:Object => Inventory.Contains<T>();
     }
 }

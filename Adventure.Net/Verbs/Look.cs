@@ -18,9 +18,6 @@
             return true;
         }
 
-        private bool ExamineObject()
-        {
-            return RedirectTo<Examine>("<noun>");
-        }
+        private bool ExamineObject() => RedirectTo<Examine>("<noun>");
     }
 }

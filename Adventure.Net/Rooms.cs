@@ -7,7 +7,7 @@ namespace Adventure.Net
 {
     public class Rooms
     {
-        private static List<Room> rooms = new List<Room>();
+        private static readonly List<Room> rooms = new List<Room>();
 
         public static void Load(IStory story)
         {
@@ -20,36 +20,20 @@ namespace Adventure.Net
 
         public static IList<Room> All
         {
-            get { return rooms; }
+            get => rooms;
         }
 
         public static Room Get(Type type)
-        {
-            foreach (var room in rooms)
-            {
-                Type roomType = room.GetType();
-                if (roomType == type)
-                    return room;
-            }
+            => rooms.FirstOrDefault(r => r.GetType() == type);
 
-            return null;
-        }
+        public static Room Get<T>() =>  Get(typeof (T));
 
-        public static Room Get<T>()
-        {
-            return Get(typeof (T));
-        }
-
+        //Ignore casing?
         public static Room GetByName(string name)
-        {
-            return rooms.Where(x => x.Name == name || x.Synonyms.Contains(name)).FirstOrDefault();
-        }
+            => rooms.Where(x => x.Name == name || x.Synonyms.Contains(name)).FirstOrDefault();
 
+        //Ignore casing?
         public static IList<Room> WithName(string name)
-        {
-            return rooms.Where(x => x.Name == name || x.Synonyms.Contains(name)).ToList();
-        }
-
-        
+            => rooms.Where(x => x.Name == name || x.Synonyms.Contains(name)).ToList();
     }
 }

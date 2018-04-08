@@ -2,7 +2,6 @@
 
 namespace Adventure.Net.Verbs
 {
-
     public class Open : Verb
     {
         public Open()
@@ -33,14 +32,9 @@ namespace Adventure.Net.Verbs
                 Object.IsOpen = true;
                 Print(String.Format("You open the {0}.", Object.Name));
             }
-
             return true;
         }
 
-        private bool UnlockObject()
-        {
-            return RedirectTo<Unlock>("<noun> with <held>");
-        }
-
+        private bool UnlockObject() => RedirectTo<Unlock>("<noun> with <held>");
     }
 }

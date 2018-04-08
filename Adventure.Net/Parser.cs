@@ -1,22 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Adventure.Net.Verbs;
 
 namespace Adventure.Net
 {
     public class ParserResult
     {
-        public List<string> BeforeMessages { get; private set; }
-        public List<string> DuringMessages { get; private set; }
-        public List<string> AfterMessages { get; private set; }
+        public List<string> BeforeMessages { get; } = new List<string>();
+        public List<string> DuringMessages { get; } = new List<string>();
+        public List<string> AfterMessages { get; } = new List<string>();
 
         public ParserResult()
-        {
-            BeforeMessages = new List<string>();
-            DuringMessages = new List<string>();
-            AfterMessages = new List<string>();
-        }
+        { }
     }
 
     public class Parser : IParser
@@ -55,11 +50,8 @@ namespace Adventure.Net
             }
         }
 
-        public void Print(string format, params object[] arg)
-        {
-            string msg = String.Format(format, arg);
-            Print(msg);
-        }
+        public void Print(string format, params object[] arg) 
+            => Print(String.Format(format, arg));
 
         private IList<string> GetMessageList()
         {
@@ -70,10 +62,7 @@ namespace Adventure.Net
             return results.Last().DuringMessages;
         }
 
-        public IList<string> Parse(string input)
-        {
-            return Parse(input, true);
-        }
+        public IList<string> Parse(string input) => Parse(input, true);
 
         private IList<String> Parse(string input, bool showOutput)
         {
@@ -131,18 +120,18 @@ namespace Adventure.Net
                 list.AddRange(additionalResults);
             }
 
-            Action<string> print = (msg) =>
+            void print(string msg)
+            {
+                string[] lines = msg.Split('\n');
+                foreach (var line in lines)
                 {
-                    string[] lines = msg.Split('\n');
-                    foreach (var line in lines)
+                    list.Add(line);
+                    if (showOutput)
                     {
-                        list.Add(line);
-                        if (showOutput)
-                        {
-                            Context.Output.Print(line);
-                        }
+                        Context.Output.Print(line);
                     }
-                };
+                }
+            }
 
             foreach (var result in results)
             {
@@ -174,7 +163,6 @@ namespace Adventure.Net
             {
                 ExecuteCommand(command);
             }
-            
         }
 
         public bool ExecuteCommand(Command command)
@@ -198,7 +186,6 @@ namespace Adventure.Net
                     After(command);
                 }
             }
-
             return result;
         }
 
@@ -219,7 +206,6 @@ namespace Adventure.Net
                     return before();
                 }
             }
-
             return false;
         }
 
@@ -247,13 +233,9 @@ namespace Adventure.Net
                     return after();
                 }
             }
-
             return false;
         }
-
-
     }
-
 }
 
 

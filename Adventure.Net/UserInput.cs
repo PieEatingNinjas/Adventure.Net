@@ -7,8 +7,7 @@ namespace Adventure.Net
 {
     public class UserInput
     {
-        private Library L = new Library();
-
+        private readonly Library L = new Library();
 
         public InputResult Parse(string input)
         {
@@ -17,7 +16,7 @@ namespace Adventure.Net
             var tokenizer = new InputTokenizer();
             var tokens = tokenizer.Tokenize(input);
 
-            Action removeVerbToken = () => tokens.RemoveAt(0);
+            void removeVerbToken() => tokens.RemoveAt(0);
 
             if (tokens.Count == 0)
             {
@@ -157,8 +156,6 @@ namespace Adventure.Net
                         result.IsPartial = true;
                     }
                 }
-
-               
             }
 
             result.Pregrammar = string.Join(" ", grammarTokens.ToArray());
@@ -190,7 +187,6 @@ namespace Adventure.Net
             {
                 result.Exceptions.ForEach(x => result.Objects.Remove(x));
             }
-
             return result;
         }
 
@@ -218,7 +214,6 @@ namespace Adventure.Net
                     return true;
                 }
             }
-
             return false;
         }
 

@@ -4,14 +4,14 @@
     {
         protected Object Object
         {
-            get { return Context.Object; }
-            set { Context.Object = value; }
+            get =>  Context.Object;
+            set => Context.Object = value;
         }
 
         protected Object IndirectObject
         {
-            get { return Context.IndirectObject; }
-            set { Context.IndirectObject = value; }
+            get => Context.IndirectObject; 
+            set => Context.IndirectObject = value; 
         }
 
         public void Print(string format, params object[] arg)

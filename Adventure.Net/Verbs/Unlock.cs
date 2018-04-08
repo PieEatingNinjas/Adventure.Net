@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Adventure.Net.Verbs
@@ -84,7 +83,6 @@ namespace Adventure.Net.Verbs
             }
 
             Context.Parser.Parse(input);
-
         }
     }
 }

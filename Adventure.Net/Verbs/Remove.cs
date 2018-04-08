@@ -19,15 +19,10 @@ Verb 'remove'
             Grammars.Add(K.MULTI_TOKEN, Take);
         }
 
-        private bool Disrobe()
-        {
-            throw new Exception("Disrobe verb not implemented");
-        }
+        private bool Disrobe() 
+            => throw new NotImplementedException($"'{nameof(Disrobe)}' verb not implemented");
 
-        private bool Take()
-        {
-            return RedirectTo<Take>(K.MULTI_TOKEN);
-        }
+        private bool Take() =>  RedirectTo<Take>(K.MULTI_TOKEN);
     }
 }
 

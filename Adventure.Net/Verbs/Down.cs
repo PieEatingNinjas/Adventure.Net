@@ -6,6 +6,5 @@ namespace Adventure.Net.Verbs
         {
             SetDirection(room => room.DOWN(), "down", "d");
         }
-
     }
 }

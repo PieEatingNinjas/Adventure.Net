@@ -36,19 +36,16 @@ namespace Adventure.Net
                 {
                     result = Contents.Count > 0 ? "which is open" : "which is open but empty";
                 }
-
                 return result;
             }
         }
+
         public bool IsEmpty
         {
-            get { return contents.Count == 0; }
+            get => contents.Count == 0;
         }
 
-        public void Empty()
-        {
-            contents.Clear();
-        }
+        public void Empty() => contents.Clear();
 
         public void Add<T>() where T:Object
         {
@@ -91,6 +88,5 @@ namespace Adventure.Net
             Object obj = Objects.Get<T>();
             return Contents.Contains(obj);
         }
-          
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace Adventure.Net
@@ -19,19 +18,10 @@ namespace Adventure.Net
                 prepositions.Add(newPreposition);
         }
 
-        public static bool Contains(string preposition)
-        {
-            return prepositions.Contains(preposition);
-        }
+        public static bool Contains(string preposition) => prepositions.Contains(preposition);
 
-        public IEnumerator<string> GetEnumerator()
-        {
-            return prepositions.GetEnumerator();
-        }
+        public IEnumerator<string> GetEnumerator() => prepositions.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

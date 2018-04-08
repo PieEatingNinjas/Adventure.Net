@@ -21,7 +21,5 @@ namespace Adventure.Net.Verbs
             Print(String.Format("You look ridiculous waving the {0}.", Object.Name));
             return true;
         }
-
-        
     }
 }

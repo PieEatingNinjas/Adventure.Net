@@ -43,7 +43,6 @@ namespace Adventure.Net
             {
                 input = input.Replace(value, "");
             }
-
             return input;
         }
     }

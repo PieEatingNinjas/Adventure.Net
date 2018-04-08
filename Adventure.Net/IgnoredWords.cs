@@ -19,19 +19,13 @@ namespace Adventure.Net
         }
 
         public static bool Contains(string word)
-        {
-            return ignored.Contains(word);
-        }
+            => ignored.Contains(word);
 
 
         public IEnumerator<string> GetEnumerator()
-        {
-            return ignored.GetEnumerator();
-        }
+            => ignored.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+            => GetEnumerator();
     }
 }

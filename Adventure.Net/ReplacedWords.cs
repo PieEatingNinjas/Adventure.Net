@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace Adventure.Net
@@ -15,10 +14,8 @@ namespace Adventure.Net
             {"but", "except"},
         };
 
-        public static string ReplacementFor(string word)
-        {
-            return replaced.ContainsKey(word) ? replaced[word] : "";
-        }
+        public static string ReplacementFor(string word) 
+            => replaced.ContainsKey(word) ? replaced[word] : "";
 
         public static void Add(string word, string replacement)
         {
@@ -26,19 +23,10 @@ namespace Adventure.Net
                 replaced.Add(word, replacement);
         }
 
-        public static bool Contains(string word)
-        {
-            return replaced.ContainsKey(word);
-        }
+        public static bool Contains(string word) => replaced.ContainsKey(word);
 
-        public IEnumerator<string> GetEnumerator()
-        {
-            return replaced.Keys.GetEnumerator();
-        }
+        public IEnumerator<string> GetEnumerator() => replaced.Keys.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

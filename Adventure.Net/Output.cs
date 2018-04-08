@@ -8,10 +8,7 @@ namespace Adventure.Net
     {
         private readonly TextWriter target;
         
-        public Output(TextWriter destination)
-        {
-            target = destination;
-        }
+        public Output(TextWriter destination) => target = destination;
 
         public void Bold(string text)
         {
@@ -31,27 +28,16 @@ namespace Adventure.Net
                 target.WriteLine(WordWrap(line));
         }
 
-        public void Print(string format, params object[] arg)
-        {
-            target.WriteLine(WordWrap(format), arg);    
-        }
+        public void Print(string format, params object[] arg) 
+            => target.WriteLine(WordWrap(format), arg);    
 
-        public void PrintLine()
-        {
-            target.WriteLine();
-        }
+        public void PrintLine() => target.WriteLine();
 
-        public void Write(string text)
-        {
-            target.Write(WordWrap(text));
-        }
+        public void Write(string text) => target.Write(WordWrap(text));
 
         public string Buffer
         {
-            get
-            {
-                return target.ToString();
-            }
+            get => target.ToString();
         }
 
         private static string WordWrap(string text)
@@ -81,7 +67,6 @@ namespace Adventure.Net
                     }    
                 }
             }
-            
             return sb.ToString().Trim();
         }
     }

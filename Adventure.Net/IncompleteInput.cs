@@ -17,7 +17,6 @@ namespace Adventure.Net
                 {
                     OneObject(inputResult);
                 }
-
             }
             else
             {
@@ -115,6 +114,5 @@ namespace Adventure.Net
             //inputResult.ParserResults.AddRange();
             inputResult.Handled = true;
         }
-
     }
 }

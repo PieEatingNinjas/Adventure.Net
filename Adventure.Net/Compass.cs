@@ -38,7 +38,7 @@ namespace Adventure.Net
 
         public static IList<string> Directions
         {
-            get { return directions; }
+            get => directions; 
         }
     }
 }

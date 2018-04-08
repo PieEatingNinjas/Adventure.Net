@@ -1,19 +1,23 @@
-using System;
-using System.Linq;
 using Adventure.Net.Verbs;
+using System.Linq;
 
 namespace Adventure.Net
 {
     public abstract class Verb : ContextObject
     {
+        Synonyms _Synonyms;
+        Grammars _Grammars;
+
         public string Name { get; protected set; }
-        
-        public Synonyms Synonyms = new Synonyms();
-        
-        public Grammars Grammars = new Grammars();
+
+        public Synonyms Synonyms => _Synonyms ?? (_Synonyms = new Synonyms());
+
+        public Grammars Grammars => _Grammars ?? (_Grammars = new Grammars());
 
         public bool ImplicitTake { get; set; }
 
+        public bool IsNull
+            => this.GetType() == typeof(NullVerb);
 
         protected bool RedirectTo<T>(string format) where T : Verb, new()
         {
@@ -34,13 +38,7 @@ namespace Adventure.Net
 
                 result = Context.Parser.ExecuteCommand(command);
             }
-
             return result;
-        }
-
-        public bool IsNull
-        {
-            get { return this.GetType() == typeof (NullVerb); }
         }
     }
 }

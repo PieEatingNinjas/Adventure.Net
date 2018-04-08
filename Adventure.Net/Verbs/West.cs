@@ -2,10 +2,6 @@
 {
     public class West : DirectionalVerb
     {
-        public West()
-        {
-            SetDirection(room => room.W(), "west", "w");
-        }
-        
+        public West() => SetDirection(room => room.W(), "west", "w");
     }
 }

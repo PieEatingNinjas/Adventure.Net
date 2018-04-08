@@ -19,7 +19,7 @@ namespace Adventure.Net
 
         // contains parser results for recursive calls
         public List<string> ParserResults { get; set; }
- 
+
         private Verb _verb;
         private Grammar _grammar;
 
@@ -59,7 +59,7 @@ namespace Adventure.Net
                 else
                 {
                     var tags = _grammar.Format.Tags();
-                    ObjectsMustBeHeld = tags.Count > 0 && (tags[0] == K.HELD_TOKEN || tags[0] == K.MULTIHELD_TOKEN);    
+                    ObjectsMustBeHeld = tags.Count > 0 && (tags[0] == K.HELD_TOKEN || tags[0] == K.MULTIHELD_TOKEN);
                 }
 
                 if (_grammar != null)
@@ -67,22 +67,16 @@ namespace Adventure.Net
                     Action = _grammar.Action;
                     Preposition = _grammar.Preposition;
                 }
-
-                
             }
         }
 
         public Func<bool> Action { get; set; }
-        
 
         public bool ObjectsMustBeHeld { get; private set; }
 
         public bool IsExcept { get; set; }
 
         private Grammar GetGrammar(string format)
-        {
-            return Verb.Grammars.SingleOrDefault(x => x.Format == format);
-        }
+            => Verb.Grammars.SingleOrDefault(x => x.Format == format);
     }
-
 }

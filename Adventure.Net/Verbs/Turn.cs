@@ -15,19 +15,10 @@ namespace Adventure.Net.Verbs
             Grammars.Add("off <noun>", SwitchOffObject);
         }
 
-        private bool SwitchOnObject()
-        {
-            return RedirectTo<SwitchOn>("on <noun>");
-        }
+        private bool SwitchOnObject() => RedirectTo<SwitchOn>("on <noun>");
         
-        private bool SwitchOffObject()
-        {
-            return RedirectTo<SwitchOff>("off <noun>");
-        }
+        private bool SwitchOffObject() => RedirectTo<SwitchOff>("off <noun>");
         
-        private bool TurnObject()
-        {
-            throw new Exception("This is not implemented");
-        }
+        private bool TurnObject() => throw new NotImplementedException($"'{nameof(TurnObject)}' is not implemented!");
     }
 }

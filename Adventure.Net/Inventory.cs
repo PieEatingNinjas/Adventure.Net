@@ -60,15 +60,9 @@ namespace Adventure.Net
             return true;
         }
 
-        public static void Remove(Object obj)
-        {
-            objects.Remove(obj);
-        }
+        public static void Remove(Object obj) => objects.Remove(obj);
 
-        public static void Clear()
-        {
-            objects.Clear();
-        }
+        public static void Clear() => objects.Clear();
 
         public static string Display()
         {
@@ -131,7 +125,7 @@ namespace Adventure.Net
 
         public static IList<Object> Items
         {
-            get { return objects.AsReadOnly(); }
+            get => objects.AsReadOnly();
         }
     }
 }

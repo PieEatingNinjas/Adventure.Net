@@ -11,10 +11,7 @@
 
         }
 
-        private bool OnAsk()
-        {
-            return Default();
-        }
+        private bool OnAsk() => Default();
 
         private bool Default()
         {
@@ -27,10 +24,6 @@
             return true;
         }
 
-        private bool OnAskFor()
-        {
-            return Default();
-        }
-
+        private bool OnAskFor() => Default();
     }
 }

@@ -8,10 +8,7 @@ namespace Adventure.Net
     {
         private readonly InputResult inputResult;
 
-        public CommandBuilder(InputResult inputResult)
-        {
-            this.inputResult = inputResult;
-        }
+        public CommandBuilder(InputResult inputResult) => this.inputResult = inputResult;
 
         public IList<Command> Build()
         {
@@ -101,6 +98,5 @@ namespace Adventure.Net
 
         //    return result;
         //}
-    }
-   
+    } 
 }

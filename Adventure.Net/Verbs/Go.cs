@@ -17,11 +17,6 @@
             return true;
         }
 
-        private bool EnterIt()
-        {
-            return RedirectTo<Enter>(K.NOUN_TOKEN);
-        }
-        
-
+        private bool EnterIt() => RedirectTo<Enter>(K.NOUN_TOKEN);
     }
 }

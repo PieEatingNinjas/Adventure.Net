@@ -14,9 +14,6 @@ namespace Adventure.Net
         public Func<string> Action { get; set; }
         public bool IsAll { get; set; }
 
-        public CommandInfo()
-        {
-            Objects = new List<string>();
-        }
+        public CommandInfo() => new List<string>();
     }
 }

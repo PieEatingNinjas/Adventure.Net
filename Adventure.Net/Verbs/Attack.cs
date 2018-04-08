@@ -14,7 +14,6 @@
             Print("Violence isn't the answer to this one");
             return true;
         }
-
     }
 }
 

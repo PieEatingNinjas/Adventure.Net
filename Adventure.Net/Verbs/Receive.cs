@@ -6,8 +6,5 @@
     /// for the lamp. This verb has no grammars defined and is used by the Insert verb.
     /// </summary>
     public class Receive : Verb
-    {
-
-
-    }
+    { }
 }

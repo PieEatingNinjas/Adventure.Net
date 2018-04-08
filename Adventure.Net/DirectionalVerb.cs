@@ -24,7 +24,5 @@ namespace Adventure.Net
                 L.MovePlayerTo(room);
             return true;
         }
-
-        
     }
 }

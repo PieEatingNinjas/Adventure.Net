@@ -30,7 +30,6 @@ namespace Adventure.Net
                     }
                 }    
             }
-           
             return result;
         }
     }

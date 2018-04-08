@@ -2,7 +2,6 @@
 
 namespace Adventure.Net.Verbs
 {
-
     public class Put : Verb
     {
         public Put()
@@ -15,10 +14,7 @@ namespace Adventure.Net.Verbs
             Grammars.Add("<multiheld> down", DropObject);
         }
 
-        private bool InsertObject()
-        {
-            return RedirectTo<Insert>("<multi> in <noun>");
-        }
+        private bool InsertObject() => RedirectTo<Insert>("<multi> in <noun>");
         
         private bool PutOnObject()
         {
@@ -27,20 +23,12 @@ namespace Adventure.Net.Verbs
                 Print("You need to be holding {0} {1} before you can put it on top of something else.", Object.Article, Object.Name);
                 return true;
             }
-
-            throw new Exception("Not implemented");
+            throw new NotImplementedException($"'{nameof(PutOnObject)}' is not implemented");
         }
 
         private bool WearObject()
-        {
-            throw new Exception("This is not implemented!!!!!");
-        }
+            => throw new Exception($"'{nameof(WearObject)}' is not implemented");
 
-        private bool DropObject()
-        {
-            return RedirectTo<Drop>("<multiheld>");
-        }
-
-        
+        private bool DropObject() => RedirectTo<Drop>("<multiheld>");
     }
 }

@@ -10,11 +10,6 @@
             Grammars.Add("<multi> up", PickUpObject);
         }
 
-        private bool PickUpObject()
-        {
-            return RedirectTo<Take>("<multi>");
-        }
-
-        
+        private bool PickUpObject() => RedirectTo<Take>("<multi>");
     }
 }
