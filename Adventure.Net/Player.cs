@@ -10,7 +10,5 @@
         {
             return Inventory.Contains<T>();
         }
-
-        
     }
 }
